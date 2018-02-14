@@ -1,0 +1,10 @@
+#sagebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
