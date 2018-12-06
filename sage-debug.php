@@ -79,6 +79,15 @@ function sagebar_text_colorpicker_display($args) {
   printf($input_html_string, $args['label_for'], $args['label_for'], get_option('sagebar_text_colour') );
 }
 
+# End Callback functions
+
+function sagebar_add_settings_link( $links ) {
+    $settings_link = '<a href="tools.php?page=sagebar">' . __( 'Settings' ) . '</a>';
+    array_push( $links, $settings_link );
+    return $links;
+}
+add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ) , 'sagebar_add_settings_link' );
+
 function sagebar_options_page() {
   add_management_page(
     'Sagebar Options',
