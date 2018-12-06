@@ -2,6 +2,7 @@
 /**
  * Plugin Name: Sage Template Debugger
  * Description: Shows what Main and Base template a page is using for a Sage 8 theme
+ * Author: Chinara James
  * Author URI: https://chinarajames.com
  * Version: 1.0.0
  */
