@@ -159,11 +159,15 @@ function sagebar_is_enabled_notice() {
 add_action('admin_notices', 'sagebar_is_enabled_notice');
 
 function sage_wrap_info() {
-  if(!get_option('sagebar_enable')) {
+
+  $class = class_exists('\Roots\Sage\Wrapper\SageWrapping') ? '\Roots\Sage\Wrapper\SageWrapping' : 'Spring\Wrapper\SpringWrapping';
+
+  if(!get_option('sagebar_enable') || !class_exists($class)) {
+    printf('<div id="sagebar">You either have not enabled Sagebar (<a href="wp-admin/tools.php?page=sagebar">Settings</a>) or you are not using a <a href="https://github.com/roots/sage/tree/8.5.4" target="_blank">Sage 8.5</a> based theme.</div>');
     return;
   }
 
-  $main = \Roots\Sage\Wrapper\SageWrapping::$main_template;
+  $main = $class::$main_template;
   global $template;
   $string = '<span>%s Template: %s</span>';
   $bgColour = get_option('sagebar_bg_colour');
